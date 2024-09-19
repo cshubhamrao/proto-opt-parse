@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package greeter.v1;
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayPersonalHelloRequest {
+  string name = 1;
+  string template = 2;
+}
+
+message SayHelloResponse {
+  string message = 1;
+}
+
+message SayPersonalHelloResponse {
+  string message = 1;
+}
+
+// Greeter service is a great way to say hello
+service GreeterService {
+  // Greet users with a simple, fixed hello message
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse);
+  // Greet users with a personalised template for hello message
+  rpc SayPersonalHello(SayPersonalHelloRequest) returns (SayPersonalHelloResponse);
+}
