@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package opts.v1;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.MethodOptions {
+  optional LogOptions logging_config = 50007;
+}
+
+message LogOptions {
+  optional string log_level = 1;
+  optional string scope_name = 2;
+}

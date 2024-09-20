@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package greeter.v1;
 
+import "opts/v1/logopts.proto";
+
 message SayHelloRequest {
   string name = 1;
 }
@@ -22,7 +24,12 @@ message SayPersonalHelloResponse {
 // Greeter service is a great way to say hello
 service GreeterService {
   // Greet users with a simple, fixed hello message
-  rpc SayHello(SayHelloRequest) returns (SayHelloResponse);
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
+    option (opts.v1.logging_config) = {
+      log_level: "INFO"
+      scope_name: "SayHello"
+    };
+  }
   // Greet users with a personalised template for hello message
   rpc SayPersonalHello(SayPersonalHelloRequest) returns (SayPersonalHelloResponse);
 }
