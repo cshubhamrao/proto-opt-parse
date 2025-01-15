@@ -7,14 +7,15 @@ import (
 	"os"
 	"strings"
 
-	greeterv1 "github.com/cshubhamrao/proto-opt-parse/gen/greeter/v1"
-	optsv1 "github.com/cshubhamrao/proto-opt-parse/gen/opts/v1"
 	"google.golang.org/protobuf/encoding/prototext"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protodesc"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/reflect/protoregistry"
 	"google.golang.org/protobuf/types/descriptorpb"
+
+	greeterv1 "github.com/cshubhamrao/proto-opt-parse/gen/greeter/v1"
+	optsv1 "github.com/cshubhamrao/proto-opt-parse/gen/opts/v1"
 )
 
 var log = slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
